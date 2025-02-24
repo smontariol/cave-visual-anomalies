@@ -327,14 +327,44 @@
           </div>
           
           <div class="columns is-centered has-text-centered" style="margin-top: 5em;">
-            <h4 class="title is-4">Various prompting methods's impact on performance in VLM<sup>2</sup>-Bench (language-side and vision-side)</h4>
+            <h4 class="title is-4" style="background-color: #f6ee11;">Various prompting methods's impact on performance in VLM<sup>2</sup>-Bench</h4>
+          </div>
+          
+          <div class="content">
+            <h5 class="title is-5">Language-Side Prompting Methods</h5>
+            <ul>
+              <li>
+                <strong>CoT-normal:</strong>  
+                Generic step-by-step reasoning prompt ("Let’s think step by step").
+              </li>
+              <li>
+                <strong>CoT-special:</strong>  
+                Task-tailored for GC tasks, enforcing a structured four-step process: understand, perceive, compare, and conclude. 
+              </li>
+            </ul>
+          
+            <h5 class="title is-5">Vision-Side Prompting Methods</h5>
+            <ul>
+              <li>
+                <strong>VP-grid:</strong>  
+                Overlays a dot matrix with 3D coordinates on images.
+              </li>
+              <li>
+                <strong>VP-zoom-o:</strong>  
+                Crops images to focus on object regions.
+              </li>
+              <li>
+                <strong>VP-zoom-p:</strong>  
+                Isolates facial regions to minimize distractions.
+              </li>
+            </ul>
           </div>
 
           <div class="text-center mb-4">
-            <img id="analysis_img" width="95%" src="./images/finding4-8.png" alt="Error Type Analysis">
+            <img id="analysis_img" width="100%" src="./images/finding-4to8.png" alt="Error Type Analysis">
           </div>
 
-          <div class="text-center mb-4">
+          <div class="text-center mb-4" style="margin-top: 3em;">
             <img id="analysis_img" width="80%" src="./images/finding4.png" alt="Error Type Analysis">
           </div>
           <div class="finding-box mb-4" style="background-color: #e6f1f8;">
