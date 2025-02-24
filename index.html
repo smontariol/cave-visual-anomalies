@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Textual Temporal Reasoning Transfer">
-  <meta name="keywords" content="multimodal chatbot">
+  <meta name="description" content="VLM2-Bench">
+  <meta name="keywords" content="multimodal benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VLM²-Bench</title>
 
@@ -101,35 +101,7 @@
   }
 </style>
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-           🔥 More Research
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://github.com/RainJamesY/FuzzLLM" target="_blank">
-              FuzzLLM
-            </a>
-            <a class="navbar-item" href="https://github.com/sterzhang/image-textualization" target="_blank">
-              Image-Textualization
-            </a>
-            <a class="navbar-item" href="https://huggingface.co/datasets/Sterzhang/PVIT-3M" target="_blank">
-              PVIT
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+  
 
   <!-- title part -->
   <section class="hero">
@@ -141,29 +113,29 @@
               <img src="images/vlm2-bench-icon_final.png" style="height: 60px; margin-right: 10px; margin-top: -10px;">
               <h1 class="title is-1 publication-title">VLM<sup>2</sup>-Bench</h1>
             </div>
-            <h2 class="subtitle is-3 publication-subtitle">A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues</h2>
+            <h3>A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues</h3>
             <div class="is-size-5">
               <span class="author-block">
-                <a href="https://sterzhang.github.io/" target="_blank" style="color:#3EC1D3;font-weight:normal;">Jianshu Zhang<sup>*</sup></a>,
+                <a href="https://sterzhang.github.io/" target="_blank" style="color:#f3540a;font-weight:normal;">Jianshu Zhang<sup>*</sup></a>,
               </span>
               <span class="author-block">
-                <a href="https://rainjamesy.github.io/" target="_blank" style="color:#FF165D;font-weight:normal;">Dongyu Yao<sup>*</sup></a>,
+                <a href="https://rainjamesy.github.io/" target="_blank" style="color:#e2c105;font-weight:normal;">Dongyu Yao<sup>*</sup></a>,
               </span>
               <span class="author-block">
-                <a href="https://pipilurj.github.io/" target="_blank" style="color:#3EC1D3;font-weight:normal;">Renjie Pi</a>,
+                <a href="https://pipilurj.github.io/" target="_blank" style="color:#f3540a;font-weight:normal;">Renjie Pi</a>,
               </span>
               <span class="author-block">
-                <a href="https://pliang279.github.io/" target="_blank" style="color:#FF9A00;font-weight:normal;">Paul Pu Liang</a>,
+                <a href="https://pliang279.github.io/" target="_blank" style="color:#a904fc;font-weight:normal;">Paul Pu Liang</a>,
               </span>
               <span class="author-block">
-                <a href="https://mayrfung.github.io/" target="_blank" style="color:#3EC1D3;font-weight:normal;">Yi R. (May) Fung</a>
+                <a href="https://mayrfung.github.io/" target="_blank" style="color:#f3540a;font-weight:normal;">Yi R. (May) Fung</a>
               </span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><b style="color:#3EC1D3; font-weight:normal">&#x25B6 </b>HKUST</span>
-              <span class="author-block"><b style="color:#FF165D; font-weight:normal">&#x25B6 </b>CMU</span>
-              <span class="author-block"><b style="color:#FF9A00; font-weight:normal">&#x25B6 </b>MIT</span>
+              <span class="author-block"><b style="color:#f3540a; font-weight:normal">&#x25B6 </b>HKUST</span>
+              <span class="author-block"><b style="color:#e2c105; font-weight:normal">&#x25B6 </b>CMU</span>
+              <span class="author-block"><b style="color:#a904fc; font-weight:normal">&#x25B6 </b>MIT</span>
             </div>
 
             <div class="is-size-6 publication-authors">
@@ -214,11 +186,9 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <h4 class="subtitle has-text-centered">
-          We introduce VLM²-Bench, a benchmark designed to assess whether vision-language models (VLMs) can Visually Link Matching cues, with 9 subtasks and over 3,000 test cases.<br>
-          Comprehensive evaluation across eight open-source VLMs and GPT-4o reveals a significant performance gap where even GPT-4o lags 34.80% behind humans.<br>
-          Our findings highlight critical challenges in models' ability to link visual cues and advocate for enhancing core visual capabilities, establishing clearer principles for integrating language-based reasoning in vision-centric tasks, and shifting training paradigms toward fostering models' ability to independently structure and infer relationships among visual cues.
-        </h4>
+        <h5 style="font-size: 1.2em; text-align: center;">
+          In daily life, we often accomplish tasks purely through <span style="font-weight: bold; color: #f3540a;">Linking Explicit Matching Visual Cues</span>  without relying on <span style="color: #2980b9; font-weight: bold;">extensive extra knowledge</span>. For example, we can <span style="color: #f3540a;">recognize the same person across different photos</span> without <span style="color: #2980b9;">having seen them before</span>, or <span style="color: #f3540a;">matching an online product to one seen in-store</span> without <span style="color: #2980b9;">knowing its brand</span>. But what about increasingly powerful Vision-Language Models—do they possess this vision-centric and knowledge-independent ability?
+      </h5>
       </div>
     </div>
   </section>
@@ -241,10 +211,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Visually linking matching cues is a crucial ability in daily life, such as identifying the same person in multiple photos based on their cues, even without knowing who they are. Despite the extensive knowledge that vision-language models (VLMs) possess, it remains largely unexplored whether they are capable of performing this fundamental task.
-              To address this, we introduce VLM²-Bench, a benchmark designed to assess whether VLMs can Visually Link Matching cues, with 9 subtasks and over 3,000 test cases.
-              Comprehensive evaluation across eight open-source VLMs and GPT-4o reveals a significant performance gap where even GPT-4o lags 34.80% behind humans.
-              Our findings highlight critical challenges in models' ability to link visual cues and advocate for enhancing core visual capabilities, establishing clearer principles for language-based reasoning, and shifting training paradigms toward fostering models' ability to independently structure and infer relationships among visual cues.
+              Visually linking matching cues is a crucial ability in daily life, such as identifying the same person in multiple photos based on their cues, even without knowing who they are. Despite the extensive knowledge that vision-language models (VLMs) possess, it remains largely unexplored whether they are capable of performing this fundamental task. To address this, we introduce <span style="font-weight: bold;">VLM<sup>2</sup>-Bench</span>, a benchmark designed to assess whether <span style="font-weight: bold;">VLM</span>s can <span style="font-weight: bold;">V</span>isually <span style="font-weight: bold;">L</span>ink <span style="font-weight: bold;">M</span>atching cues, with 9 subtasks and over 3,000 test cases. Comprehensive evaluation across eight open-source VLMs and GPT-4o, along with further analysis of various languageside and vision-side prompting methods, leads to a total of eight key findings. We identify critical challenges in models’ ability to link visual cues, highlighting a significant performance gap where even GPT-4o lags 34.80% behind humans. Based on these insights, we advocate for (i) enhancing core visual capabilities to improve adaptability and reduce reliance on prior knowledge, (ii) establishing clearer principles for integrating language-based reasoning in vision-centric tasks to prevent unnecessary biases, and (iii) shifting vision-text training paradigms toward fostering models’ ability to independently structure and infer relationships among visual cues.
            </p>
           </div>
         </div>
@@ -256,7 +223,7 @@
   <section class="section">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">VLM2-Bench Dataset</h2>
+        <h2 class="title is-3">VLM<sup>2</sup>-Bench</h2>
       </div>
     </div>
   
@@ -277,20 +244,20 @@
   
             <div class="methodology-section">
               <p class="mb-3">
-                VLM2-Bench is designed to evaluate models' ability to visually link matching cues across multiple images and videos. It is organized into three main categories:
+                VLM<sup>2</sup>-Bench is designed to evaluate models' ability to visually link matching cues across multiple images and videos, which is structured around three types of visual cue connection: general cue, person-centric cue, and object-centric cue, encompassing a total of eight subtasks.
               </p>
               <div class="domains-list mb-4">
                 <div class="domain-item">
                   <span class="domain-number">1.</span>
-                  <span>General Cue (GC): Assessing matching and tracking of visual elements.</span>
+                  <span>General Cue (GC): Assessing matching (Mat) and tracking (Trk) of visual elements.</span>
                 </div>
                 <div class="domain-item">
                   <span class="domain-number">2.</span>
-                  <span>Object-centric Cue (OC): Evaluating comparison, counting, and grouping of objects.</span>
+                  <span>Object-centric Cue (OC): Evaluating comparison (Cpr), counting (Cnt), and grouping (Grp) of objects.</span>
                 </div>
                 <div class="domain-item">
                   <span class="domain-number">3.</span>
-                  <span>Person-centric Cue (PC): Focusing on comparing, counting, grouping, and video identity describing of individuals.</span>
+                  <span>Person-centric Cue (PC): Focusing on comparing (Cpr), counting (Cnt), grouping (Grp), and video identity describing (VID) of individuals.</span>
                 </div>
               </div>
   
@@ -300,7 +267,7 @@
             </div>
   
             <div class="text-center mt-5">
-              <img id="pipeline_framework" width="80%" src="./images/vlm2-bench_overview.png" alt="VLM2-Bench Overview">
+              <img id="pipeline_framework" width="100%" src="./images/vlm2-bench_overview.png" alt="VLM2-Bench Overview">
             </div>
             <br>
             <br>
@@ -323,7 +290,7 @@
   <section class="section">
     <div class="columns is-centered has-text-centered">
       <div class="column is-six-fifths">
-        <h2 class="title is-3">Experiments</h2>
+        <h2 class="title is-3">Experiments & Findings</h2>
       </div>
     </div>
     
@@ -340,16 +307,80 @@
               <img id="pipeline_framework" width="90%" src="./images/vlm2-bench_eval_results.png" alt="VLM2-Bench Evaluation Results">     
             </div>
           </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding I: Simple tasks for humans pose significant challenges for VLMs. (Table 1)</span>
+            </p>
+          </div>
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="40%" src="./images/finding2.png" alt="Error Type Analysis">
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding II: Relatively consistent error patterns in Mat and Trk of GC. (Table 2)</span>
+            </p>
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding III: Models perform better in linking person-centric cues than object-centric cues. (Table 1)</span>
+            </p>
+          </div>
+          
+          <div class="columns is-centered has-text-centered" style="margin-top: 5em;">
+            <h4 class="title is-4">Various prompting methods's impact on performance in VLM<sup>2</sup>-Bench (language-side and vision-side)</h4>
+          </div>
+
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="50%" src="./images/finding3-8.png" alt="Error Type Analysis">
+          </div>
+
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="80%" src="./images/finding4.png" alt="Error Type Analysis">
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding IV: Reasoning in language aids models in logically linking visual cues. (Figure 5 and Figure 15)</span>
+            </p>
+          </div>
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="80%" src="./images/finding5.png" alt="Error Type Analysis">
+          </div>
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="80%" src="./images/finding5-1.png" alt="Error Type Analysis">
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding V: Effectiveness of visual prompting depends on models' ability to interpret both prompting cues and the visual content. (Figure 5a, Figure 16 and Figure 17)</span>
+            </p>
+          </div>
+          <div class="text-center mb-4">
+            <img id="analysis_img" width="80%" src="./images/finding6.png" alt="Error Type Analysis">
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VI: The open-ended nature of language may hinder object grouping. (Figure 5b and Figure 18)</span>
+            </p>
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VII: Amplifying object cues benefits stronger models while having minimal impact on others. (Figure 5b)</span>
+            </p>
+          </div>
+          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
+            <p class="finding-content">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VIII: CoT and visual prompting fail to improve linking on highly abstract personcentric cues, leading to a performance drop. (Figure 5c)</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
-  <!--  Next Steps / Future Directions Section -->
-  <!-- <section class="section">
+   <!-- Next Steps / Future Directions Section -->
+  <section class="section">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Next Steps: Advancing Vision-Language Models</h2>
+        <h2 class="title is-3">Take aways</h2>
       </div>
     </div>
   
@@ -357,46 +388,32 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content has-text-justified">
-            <p class="mb-5">
-              Our evaluation of VLM2-Bench highlights several key areas for future improvements in vision-language models:
-            </p>
   
             <div class="finding-box mb-4">
-              <p class="finding-content">
-                1. <span class="number">Enhanced Visual Perception:</span> Current models struggle with accurately linking matching visual cues. Even state-of-the-art systems fall significantly short of human performance, emphasizing the need for improved core visual capabilities.
-                <span class="arrow">→</span>
-                <span class="conclusion">Invest in robust visual feature extraction and cue integration.</span>
-              </p>
+              <span style="font-size: larger; text-align: center; font-weight: bold;">
+                Improving core visual abilities not only enhances overall performance but also increases adaptability. A stronger visual foundation maximizes the effectiveness of visual prompting and reduces reliance on prior knowledge, enabling models to operate more independently in vision-centric tasks.
+                <span class="arrow" style="color: #1194ec;">→</span>
+                <span class="conclusion" style="color: #f3540a;">Strengthening Fundamental Visual Capabilities.</span>
+              </span>
             </div>
-            <div class="text-center mb-4">
-              <img id="analysis_img" width="60%" src="./images/vlm2-bench_analysis_error.png" alt="Error Type Analysis">
-            </div>
-  
             <div class="finding-box mb-4">
-              <p class="finding-content">
-                2. <span class="number">Specialized Cue Processing:</span> Models exhibit varying performance across cue types, with person-centric tasks outperforming object-centric ones. This indicates a potential benefit from tailored processing strategies for different visual cues.
-                <span class="arrow">→</span>
-                <span class="conclusion">Develop targeted enhancements for object-centric and general cues.</span>
-              </p>
+              <span style="font-size: larger; text-align: center; font-weight: bold;">
+                Integrating language into vision-centric tasks requires careful calibration. Future research should establish clearer principles on when language-based reasoning aids visual understanding and when it introduces unnecessary biases, ensuring models leverage language appropriately.
+                <span class="arrow" style="color: #1194ec;">→</span>
+                <span class="conclusion" style="color: #f3540a;">Balancing Language-Based Reasoning in Vision-Centric Tasks.</span>
+              </span>
             </div>
-            <div class="text-center mb-4">
-              <img id="analysis_img" width="60%" src="./images/vlm2-bench_analysis_scaling.png" alt="Test-time Scaling Analysis">
-            </div>
-  
             <div class="finding-box mb-4">
-              <p class="finding-content">
-                3. <span class="number">Structured Reasoning:</span> Incorporating chain-of-thought and visual prompting methods can aid in cue linking, yet their effectiveness varies. Refining these approaches could further bridge the performance gap.
-                <span class="arrow">→</span>
-                <span class="conclusion">Explore advanced prompting strategies to enhance logical reasoning.</span>
-              </p>
-            </div>
-            <div class="text-center">
-              <img id="prompting_img" width="60%" src="./images/vlm2-bench_prompting.png" alt="Prompting Methods Analysis">
+              <span style="font-size: larger; text-align: center; font-weight: bold;">
+                Current training paradigms focus heavily on emphasizing vision-language associations. However, as models expand their visual context window, their ability to reason purely within the visual domain becomes increasingly crucial. We should prioritize developing models that can structure, organize, and infer relationships among visual cues.
+                <span class="arrow" style="color: #1194ec;">→</span>
+                <span class="conclusion" style="color: #f3540a;">Evolving Vision-Text Training Paradigms.</span>
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   
     <style>
       .finding-box {
@@ -459,13 +476,7 @@
       </p>
       <p>
         <b>Usage and License Notices</b>: The data, code, and checkpoints are intended for research use only and are subject to the license agreement of GPT-4o.
-      </p>
-      <p>
-        Related Links: 
-        <a href='https://github.com/RainJamesY/FuzzLLM'>FuzzLLM</a>,
-        <a href='https://github.com/sterzhang/image-textualization'>Image-Textualization</a>,
-        <a href='https://huggingface.co/datasets/Sterzhang/PVIT-3M'>PVIT</a>
-      </p>    
+      </p>  
     </div>
   </section>
 
