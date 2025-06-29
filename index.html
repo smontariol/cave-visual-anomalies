@@ -411,7 +411,7 @@
   <section class="section">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Take aways</h2>
+        <h2 class="title is-3">Take-aways</h2>
       </div>
     </div>
   
@@ -420,31 +420,97 @@
         <div class="column">
           <div class="content has-text-justified">
   
-            <div class="finding-box mb-4">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">
-                Improving core visual abilities not only enhances overall performance but also increases adaptability. A stronger visual foundation maximizes the effectiveness of visual prompting and reduces reliance on prior knowledge, enabling models to operate more independently in vision-centric tasks.
-                <span class="arrow" style="color: #1194ec;">→</span>
-                <span class="conclusion" style="color: #f3540a;">Strengthening Fundamental Visual Capabilities.</span>
-              </span>
+            <div class="takeaway-box mb-4">
+              <div class="takeaway-content">
+                <p class="takeaway-text">
+                  Improving core visual abilities not only enhances overall performance but also increases adaptability. A stronger visual foundation maximizes the effectiveness of visual prompting and reduces reliance on prior knowledge, enabling models to operate more independently in vision-centric tasks.
+                </p>
+                <div class="takeaway-conclusion">
+                  <span class="arrow">→</span>
+                  <span class="conclusion-text">Strengthening Fundamental Visual Capabilities</span>
+                </div>
+              </div>
             </div>
-            <div class="finding-box mb-4">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">
-                Integrating language into vision-centric tasks requires careful calibration. Future research should establish clearer principles on when language-based reasoning aids visual understanding and when it introduces unnecessary biases, ensuring models leverage language appropriately.
-                <span class="arrow" style="color: #1194ec;">→</span>
-                <span class="conclusion" style="color: #f3540a;">Balancing Language-Based Reasoning in Vision-Centric Tasks.</span>
-              </span>
+
+            <div class="takeaway-box mb-4">
+              <div class="takeaway-content">
+                <p class="takeaway-text">
+                  Integrating language into vision-centric tasks requires careful calibration. Future research should establish clearer principles on when language-based reasoning aids visual understanding and when it introduces unnecessary biases, ensuring models leverage language appropriately.
+                </p>
+                <div class="takeaway-conclusion">
+                  <span class="arrow">→</span>
+                  <span class="conclusion-text">Balancing Language-Based Reasoning in Vision-Centric Tasks</span>
+                </div>
+              </div>
             </div>
-            <div class="finding-box mb-4">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">
-                Current training paradigms focus heavily on emphasizing vision-language associations. However, as models expand their visual context window, their ability to reason purely within the visual domain becomes increasingly crucial. We should prioritize developing models that can structure, organize, and infer relationships among visual cues.
-                <span class="arrow" style="color: #1194ec;">→</span>
-                <span class="conclusion" style="color: #f3540a;">Evolving Vision-Text Training Paradigms.</span>
-              </span>
+
+            <div class="takeaway-box mb-4">
+              <div class="takeaway-content">
+                <p class="takeaway-text">
+                  Current training paradigms focus heavily on emphasizing vision-language associations. However, as models expand their visual context window, their ability to reason purely within the visual domain becomes increasingly crucial. We should prioritize developing models that can structure, organize, and infer relationships among visual cues.
+                </p>
+                <div class="takeaway-conclusion">
+                  <span class="arrow">→</span>
+                  <span class="conclusion-text">Evolving Vision-Text Training Paradigms</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <style>
+      .takeaway-box {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-left: 4px solid #1194ec;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .takeaway-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      }
+
+      .takeaway-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .takeaway-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #2c3e50;
+        margin: 0;
+        text-align: justify;
+      }
+
+      .takeaway-conclusion {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid #dee2e6;
+      }
+
+      .arrow {
+        color: #1194ec;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .conclusion-text {
+        color: #f3540a;
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+    </style>
   
     <style>
       .finding-box {
@@ -485,14 +551,11 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-@misc{zhang2025vlm2benchcloserlookvlms,
-      title={VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues}, 
-      author={Jianshu Zhang and Dongyu Yao and Renjie Pi and Paul Pu Liang and Yi R. Fung},
-      year={2025},
-      eprint={2502.12084},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.12084}, 
+@article{zhang2025vlm2,
+  title={VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues},
+  author={Zhang, Jianshu and Yao, Dongyu and Pi, Renjie and Liang, Paul Pu and Fung, Yi R},
+  journal={arXiv preprint arXiv:2502.12084},
+  year={2025}
 }
       </code></pre>
     </div>
