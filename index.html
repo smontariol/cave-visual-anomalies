@@ -2,548 +2,164 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="VLM2-Bench">
-  <meta name="keywords" content="multimodal benchmark">
+  <meta name="description" content="CAVE Benchmark">
+  <meta name="keywords" content="Commonsense anomalies, vision-language models, multimodal benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VLM2-Bench</title>
+  <title>CAVE Benchmark</title>
 
+  <!-- Fonts and CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="images/vlm2-bench-icon_final.png">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.16.0/gradio.js"></script>
+  <link rel="icon" href="images/cave.png">
 </head>
 
-<style>
-  .expandable-card .card-text-container {
-    max-height: 200px;
-    overflow-y: hidden;
-    position: relative;
-  }
-
-  .expandable-card.expanded .card-text-container {
-    max-height: none;
-  }
-
-  .expand-btn {
-    position: relative;
-    display: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #510c75;
-    border-color: transparent;
-  }
-
-  .expand-btn:hover {
-    background-color: rgba(200, 200, 200, 0.8);
-    text-decoration: none;
-    border-color: transparent;
-    color: #510c75;
-  }
-
-  .expand-btn:focus {
-    outline: none;
-    text-decoration: none;
-  }
-
-  .expandable-card:not(.expanded) .card-text-container:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
-  }
-
-  .expandable-card:not(.expanded) .expand-btn {
-    margin-top: -40px;
-  }
-
-  .card-body {
-    padding-bottom: 5px;
-  }
-
-  .vertical-flex-layout {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .figure-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .adjustable-font-size {
-    font-size: calc(0.5rem + 2vw);
-  }
-
-  .chat-history {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-
-  #gradio pre {
-    background-color: transparent;
-  }
-</style>
 <body>
-  
-
-  <!-- title part -->
+  <!-- Title Section -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <div style="display: flex; align-items: center; justify-content: center;">
-              <img src="images/vlm2-bench-icon_final.png" style="height: 60px; margin-right: 10px; margin-top: -10px;">
-              <h1 class="title is-1 publication-title">VLM2-Bench </h1>
+              <img src="images/cave.png" style="height: 60px; margin-right: 10px; margin-top: -10px;">
+              <h1 class="title is-1 publication-title">CAVE Benchmark</h1>
             </div>
-            <h2><b>A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues</b></h2>
-            <h3><b style="color:red;">ACL 2025 Main</b></h3>
+            <h2><b>Commonsense Anomalies in Visual Environments</b></h2>
+            <h3><b style="color:red;">EMNLP 2025 Main</b></h3>
+
             <div class="is-size-5">
-              <span class="author-block">
-                <a href="https://sterzhang.github.io/" target="_blank" style="color:#FF165D;font-weight:normal;"><b>Jianshu Zhang</b><sup>*</sup></a>,
-              </span>
-              <span class="author-block">
-                <a href="https://rainjamesy.github.io/" target="_blank" style="color:#FF9A00;font-weight:normal;"><b>Dongyu Yao</b><sup>*</sup></a>,
-              </span>
-              <span class="author-block">
-                <a href="https://pipilurj.github.io/" target="_blank" style="color:#FF165D;font-weight:normal;"><b>Renjie Pi</b></a>,
-              </span>
-              <span class="author-block">
-                <a href="https://pliang279.github.io/" target="_blank" style="color:#a904fc;font-weight:normal;"><b>Paul Pu Liang</b></a>,
-              </span>
-              <span class="author-block">
-                <a href="https://mayrfung.github.io/" target="_blank" style="color:#FF165D;font-weight:normal;"><b>Yi R. (May) Fung</b></a>
-              </span>
+              <span class="author-block"><b>Rishika Bhagwatkar</b><sup>*</sup>,</span>
+              <span class="author-block"><b>Syrielle Montariol</b><sup>*</sup>,</span>
+              <span class="author-block">Angelika Romanou,</span>
+              <span class="author-block">Beatriz Borges,</span>
+              <span class="author-block">Irina Rish,</span>
+              <span class="author-block">Antoine Bosselut</span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><b style="color:#FF165D; font-weight:normal">&#x25B6 </b>HKUST</span>
-              <span class="author-block"><b style="color:#FF9A00; font-weight:normal">&#x25B6 </b>CMU</span>
-              <span class="author-block"><b style="color:#a904fc; font-weight:normal">&#x25B6 </b>MIT</span>
+              <span class="author-block"><b>EPFL</b>,</span>
+              <span class="author-block"><b>Mila</b></span>
             </div>
-
             <div class="is-size-6 publication-authors">
-              <span class="author-block"><sup>*</sup><b>Equal Contribution</b></span>
+              <span class="author-block"><sup>*</sup> Equal Contribution</span>
             </div>
 
+            <!-- Links -->
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2502.12084" target="_blank"
+                  <a href="https://arxiv.org/abs/2502.xxxxx" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
                     <span>arXiv</span>
                   </a>
                 </span>
-
                 <span class="link-block">
-                  <a href="https://github.com/vlm2-bench/VLM2-Bench" target="_blank"
+                  <a href="https://github.com/<your-repo>" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/Sterzhang/vlm2-bench" target="_blank"
+                  <a href="https://huggingface.co/datasets/<your-dataset>" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <img src="images/hf-logo.png" style="width: 20px; height: 20px;">
-                    </span>
-                    <span>HF Dataset</span>
+                    <span class="icon"><img src="images/hf-logo.png" style="width: 20px; height: 20px;"></span>
+                    <span>Dataset</span>
                   </a>
                 </span>
-
-
               </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- abstract part -->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <h5 style="font-size: 1.2em; text-align: center;">
-          In daily life, we often accomplish tasks purely through <span style="font-weight: bold; color: #f3540a;">Linking Explicit Matching Visual Cues</span>  without relying on <span style="color: #2980b9; font-weight: bold;">extensive prior knowledge</span>. For example, we can <span style="color: #f3540a;">recognize the same person across different photos</span> without <span style="color: #2980b9;">seeing them before</span>, or <span style="color: #f3540a;">match an online product to one seen in-store</span> without <span style="color: #2980b9;">knowing its brand</span>. But what about increasingly powerful Vision-Language Models—do they possess this vision-centric, knowledge-independent ability?
-      </h5>
-      </div>
-    </div>
-  </section>
-
-  <p style="text-align:center">
-  <!-- <iframe
-  src="https://mminstruction-vl-rewardbench.hf.space"
-  frameborder="0"
-  width="1200"
-  height="600"
-></iframe> -->
-  </p>
-  
-  <!-- data part -->
+  <!-- Abstract -->
   <section class="section" style="background-color:#efeff081">
     <div class="container is-max-desktop">
-      <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-six-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Visually linking matching cues is a crucial ability in daily life, such as identifying the same person in multiple photos based on their cues, even without knowing who they are. Despite the extensive knowledge that vision-language models (VLMs) possess, it remains largely unexplored whether they are capable of performing this fundamental task. To address this, we introduce <span style="font-weight: bold;">VLM2-Bench</span>, a benchmark designed to assess whether <span style="font-weight: bold;">VLM</span>s can <span style="font-weight: bold;">V</span>isually <span style="font-weight: bold;">L</span>ink <span style="font-weight: bold;">M</span>atching cues, with 9 subtasks and over 3,000 test cases. Comprehensive evaluation across twelve VLMs, along with further analysis of various language-side and vision-side prompting methods, leads to a total of eight key findings. We identify critical challenges in models' ability to link visual cues, highlighting a significant performance gap. Based on these insights, we advocate for (i) enhancing core visual capabilities to improve adaptability and reduce reliance on prior knowledge, (ii) establishing clearer principles for integrating language-based reasoning in vision-centric tasks to prevent unnecessary biases, and (iii) shifting vision-text training paradigms toward fostering models' ability to independently structure and infer relationships among visual cues.
-           </p>
+              Humans can naturally identify, reason about, and explain anomalies in their environment.
+              In computer vision, this long-standing challenge remains limited to industrial defects or
+              synthetic anomalies, failing to capture the richness of real-world unpredictability.
+              We introduce <b>CAVE</b>, the first benchmark of real-world commonsense anomalies,
+              supporting three open-ended tasks: anomaly description, explanation, and justification.
+              With fine-grained annotations categorizing anomalies based on their manifestation,
+              complexity, severity, and surprisal, CAVE provides a cognitively grounded framework for
+              evaluating VLMs. Our results show that even state-of-the-art VLMs struggle with anomaly
+              perception and commonsense reasoning, underscoring the need for advances in visual
+              understanding and reasoning capabilities.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VLM2-Bench Dataset -->
+  <!-- Figures Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">CAVE Benchmark Overview</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        <img src="images/CAVE_process.png" width="100%" alt="CAVE Benchmark Overview">
+        <p><b>Figure 1:</b> Overview of the CAVE benchmark, tasks, and annotations.</p>
+      </div>
+
+      <br><br>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h4 class="title is-4">Dataset Statistics</h4>
+        </div>
+      </div>
+      <div class="text-center">
+        <img src="images/CAVE_statistics.png" width="80%" alt="CAVE Dataset Statistics">
+        <p><b>Figure 2:</b> Statistics of anomaly categories, severity, surprisal, and complexity.</p>
+      </div>
+
+      <br><br>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h4 class="title is-4">Experimental Results</h4>
+        </div>
+      </div>
+      <div class="text-center">
+        <img src="images/cave_results.png" width="80%" alt="CAVE Results">
+        <p><b>Figure 3:</b> Performance of vision-language models on CAVE tasks.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Takeaways -->
   <section class="section">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">VLM2-Bench</h2>
+        <h2 class="title is-3">Key Findings</h2>
       </div>
     </div>
-  
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="content">
-            <!-- <div class="requirements-box mb-4">
-              <p class="mb-3">
-                An effective benchmark for evaluating vision-language models should satisfy three key requirements:
-              </p>
-              <div class="requirements-list">
-                <span class="requirement">a) Diverse coverage of real-world visual scenarios;</span>
-                <span class="requirement">b) Sufficient challenge to expose models' limitations;</span>
-                <span class="requirement">c) Objective and rigorously verified ground truth labels.</span>
-              </div>
-            </div> -->
-  
-            <div class="methodology-section">
-              <p class="mb-3">
-                VLM2-Bench is designed to evaluate models' ability to visually link matching cues across multiple images and videos, which is structured around three types of visual cue connection: general cue, person-centric cue, and object-centric cue, encompassing a total of nine subtasks.
-              </p>
-              <div class="domains-list mb-4">
-                <div class="domain-item">
-                  <span class="domain-number">1.</span>
-                  <span>General Cue (GC): Assessing matching (Mat) and tracking (Trk) of visual elements.</span>
-                </div>
-                <div class="domain-item">
-                  <span class="domain-number">2.</span>
-                  <span>Object-centric Cue (OC): Evaluating comparison (Cpr), counting (Cnt), and grouping (Grp) of objects.</span>
-                </div>
-                <div class="domain-item">
-                  <span class="domain-number">3.</span>
-                  <span>Person-centric Cue (PC): Focusing on comparing (Cpr), counting (Cnt), grouping (Grp), and video identity describing (VID) of individuals.</span>
-                </div>
-              </div>
-  
-              <p class="mb-3">
-                The dataset comprises over 3,000 question-answer pairs generated via a semi-automated pipeline with human verification, covering various question formats such as True/False, multiple-choice, numerical, and open-ended queries.
-              </p>
-            </div>
-  
-            <div class="text-center mt-5">
-              <img id="pipeline_framework" width="100%" src="./images/vlm2-bench_overview.png" alt="VLM2-Bench Overview">
-            </div>
-            <br>
-            <br>
-
-            <div class="columns is-centered has-text-centered" style="margin-top: 2em;">
-              <h4 class="title is-4">Dataset Statistics</h4>
-            </div>
-            <div class="text-center mt-5">
-              <img id="leaderboard" width="80%" src="./images/vlm2-bench_statistics.png" alt="VLM2-Bench Statistics">
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container is-max-desktop content">
+      <ul>
+        <li>State-of-the-art VLMs achieve only ~56% F1 on anomaly detection, far below human-level.</li>
+        <li>Models perform better on severe/surprising anomalies, but struggle with complex reasoning tasks.</li>
+        <li>Visual grounding and structured prompting improve recall modestly, but issues remain.</li>
+        <li>Cultural and commonsense gaps highlight the need for more inclusive evaluation.</li>
+      </ul>
     </div>
-    <br>
-    <br>
-  </section>
-  
-  <!-- Experiments Section -->
-  <section class="section">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">Experiments & Findings</h2>
-      </div>
-    </div>
-    
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <div class="content has-text-justified">
-            <p>
-              We present a comprehensive evaluation of 12 state-of-the-art vision-language models on VLM2-Bench, including open-source models ranging from 7B to 26B parameters and the commercial models Gemini 2.0 flash, GPT-4o, and Claude 3.7 Sonnet.
-              Our benchmark reveals significant challenges in current models: even the best-performing model, GPT-4o and Claude 3.7 Sonnet, lags around <strong>35%</strong> behind human-level performance. Moreover, our analysis uncovers distinct performance patterns across different cue types.
-            </p>
-  
-            <div style="text-align: center;">
-              <img id="pipeline_framework" width="90%" src="./images/vlm2-bench_eval_results.png" alt="VLM2-Bench Evaluation Results">     
-            </div>
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding I: Simple tasks for humans pose significant challenges for VLMs. (Table 1)</span>
-            </p>
-          </div>
-          <div class="text-center mb-4">
-            <img id="analysis_img" width="40%" src="./images/finding2.png" alt="Error Type Analysis">
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding II: Relatively consistent error patterns in Mat and Trk of GC. (Table 2)</span>
-            </p>
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding III: Models perform better in linking person-centric cues than object-centric cues. (Table 1)</span>
-            </p>
-          </div>
-          
-          <div class="columns is-centered has-text-centered" style="margin-top: 5em;">
-            <h4 class="title is-4" style="background-color: #f6ee11;">Various prompting method's impact on performance in VLM2-Bench</h4>
-          </div>
-          
-          <div class="content">
-            <h5 class="title is-5">Language-Side Prompting Methods</h5>
-            <ul>
-              <li>
-                <strong>CoT-normal:</strong>  
-                Generic step-by-step reasoning prompt ("Let's think step by step").
-              </li>
-              <li>
-                <strong>CoT-special:</strong>  
-                Task-tailored for GC tasks, enforcing a structured four-step process: understand, perceive, compare, and conclude. 
-              </li>
-            </ul>
-          
-            <h5 class="title is-5">Vision-Side Prompting Methods</h5>
-            <ul>
-              <li>
-                <strong>VP-grid:</strong>  
-                Overlays a dot matrix with 3D coordinates on images.
-              </li>
-              <li>
-                <strong>VP-zoom-o:</strong>  
-                Crops images to focus on object regions.
-              </li>
-              <li>
-                <strong>VP-zoom-p:</strong>  
-                Isolates facial regions to minimize distractions.
-              </li>
-            </ul>
-          </div>
-
-          <div class="text-center mb-4">
-            <img id="analysis_img" width="100%" src="./images/finding-4to8.png" alt="Error Type Analysis">
-          </div>
-
-          <div class="text-center mb-4" style="margin-top: 3em;">
-            <img id="analysis_img" width="80%" src="./images/finding4.png" alt="Error Type Analysis">
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding IV: Reasoning in language aids models in logically linking visual cues. (Figure 5 and Figure 15)</span>
-            </p>
-          </div>
-          <div class="text-center mb-4">
-            <img id="analysis_img" width="80%" src="./images/finding5.png" alt="Error Type Analysis">
-          </div>
-          <div class="text-center mb-4">
-            <img id="analysis_img" width="80%" src="./images/finding5-1.png" alt="Error Type Analysis">
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding V: Effectiveness of visual prompting depends on models' ability to interpret both prompting cues and the visual content. (Figure 5a, Figure 16 and Figure 17)</span>
-            </p>
-          </div>
-          <div class="text-center mb-4">
-            <img id="analysis_img" width="80%" src="./images/finding6.png" alt="Error Type Analysis">
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VI: The open-ended nature of language may hinder object grouping. (Figure 5b and Figure 18)</span>
-            </p>
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VII: Amplifying object cues benefits stronger models while having minimal impact on others. (Figure 5b)</span>
-            </p>
-          </div>
-          <div class="finding-box mb-4" style="background-color: #e6f1f8;">
-            <p class="finding-content">
-              <span style="font-size: larger; text-align: center; font-weight: bold;">Finding VIII: CoT and visual prompting fail to improve linking on highly abstract personcentric cues, leading to a performance drop. (Figure 5c)</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-   <!-- Next Steps / Future Directions Section -->
-  <section class="section">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3">Take-aways</h2>
-      </div>
-    </div>
-  
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <div class="content has-text-justified">
-  
-            <div class="takeaway-box mb-4">
-              <div class="takeaway-content">
-                <p class="takeaway-text">
-                  Improving core visual abilities not only enhances overall performance but also increases adaptability. A stronger visual foundation maximizes the effectiveness of visual prompting and reduces reliance on prior knowledge, enabling models to operate more independently in vision-centric tasks.
-                </p>
-                <div class="takeaway-conclusion">
-                  <span class="arrow">→</span>
-                  <span class="conclusion-text">Strengthening Fundamental Visual Capabilities</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="takeaway-box mb-4">
-              <div class="takeaway-content">
-                <p class="takeaway-text">
-                  Integrating language into vision-centric tasks requires careful calibration. Future research should establish clearer principles on when language-based reasoning aids visual understanding and when it introduces unnecessary biases, ensuring models leverage language appropriately.
-                </p>
-                <div class="takeaway-conclusion">
-                  <span class="arrow">→</span>
-                  <span class="conclusion-text">Balancing Language-Based Reasoning in Vision-Centric Tasks</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="takeaway-box mb-4">
-              <div class="takeaway-content">
-                <p class="takeaway-text">
-                  Current training paradigms focus heavily on emphasizing vision-language associations. However, as models expand their visual context window, their ability to reason purely within the visual domain becomes increasingly crucial. We should prioritize developing models that can structure, organize, and infer relationships among visual cues.
-                </p>
-                <div class="takeaway-conclusion">
-                  <span class="arrow">→</span>
-                  <span class="conclusion-text">Evolving Vision-Text Training Paradigms</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <style>
-      .takeaway-box {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        border-radius: 15px;
-        padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        border-left: 4px solid #1194ec;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .takeaway-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      }
-
-      .takeaway-content {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .takeaway-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #2c3e50;
-        margin: 0;
-        text-align: justify;
-      }
-
-      .takeaway-conclusion {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding-top: 0.5rem;
-        border-top: 1px solid #dee2e6;
-      }
-
-      .arrow {
-        color: #1194ec;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-
-      .conclusion-text {
-        color: #f3540a;
-        font-weight: bold;
-        font-size: 1.1rem;
-        text-align: center;
-      }
-    </style>
-  
-    <style>
-      .finding-box {
-        background-color: #f8f9fa;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      }
-  
-      .finding-content {
-        margin: 0;
-      }
-  
-      .number {
-        font-weight: bold;
-        color: #2c3e50;
-      }
-  
-      .arrow {
-        color: #7f8c8d;
-        margin: 0 0.5rem;
-        font-weight: bold;
-      }
-  
-      .conclusion {
-        color: #2980b9;
-        font-weight: bold;
-      }
-  
-      .text-center {
-        text-align: center;
-      }
-    </style>
   </section>
 
   <!-- BibTeX Section -->
@@ -551,196 +167,36 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-@article{zhang2025vlm2,
-  title={VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues},
-  author={Zhang, Jianshu and Yao, Dongyu and Pi, Renjie and Liang, Paul Pu and Fung, Yi R},
-  journal={arXiv preprint arXiv:2502.12084},
+@inproceedings{bhagwatkar2025cave,
+  title={CAVE: Commonsense Anomalies in Visual Environments},
+  author={Bhagwatkar, Rishika and Montariol, Syrielle and Romanou, Angelika and Borges, Beatriz and Rish, Irina and Bosselut, Antoine},
+  booktitle={EMNLP 2025},
   year={2025}
 }
       </code></pre>
     </div>
   </section>
-  
-  <!-- Acknowledgement Section -->
 
+  <!-- Contact -->
+  <section class="section" id="contact">
     <div class="container is-max-desktop content">
       <h2 class="title">Contact</h2>
-      <div style="font-size: large;">
-        Jianshu Zhang: <span style="font-family: 'Courier New', Courier, monospace;">jianshu.zhang777@gmail.com</span>
-      </div> 
-      <div style="font-size: large;">
-        Yi R. (May) Fung: <span style="font-family: 'Courier New', Courier, monospace;">yrfung@ust.hk</span>
-      </div> 
+      <p>Rishika Bhagwatkar: <code>rishika.bhagwatkar@mila.quebec</code></p>
+      <p>Syrielle Montariol: <code>syrielle.montariol@epfl.ch</code></p>
     </div>
+  </section>
 
-
-
-  <!-- Acknowledgement Section -->
+  <!-- Acknowledgement -->
   <section class="section" id="Acknowledgement">
     <div class="container is-max-desktop content">
       <h2 class="title">Acknowledgement</h2>
       <p>
-        This website is adapted from <a href="https://github.com/llava-vl/llava-vl.github.io">LLaVA-VL</a>, <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and <a href="https://vl-rewardbench.github.io/">VL-RewardBench</a>, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        This website is adapted from <a href="https://github.com/llava-vl/llava-vl.github.io">LLaVA-VL</a>,
+        <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and 
+        <a href="https://vl-rewardbench.github.io/">VL-RewardBench</a>, licensed under
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
       </p>
-      
-      <h2 class="title">Usage and License</h2> 
-      <p>Our VLM2-Bench is available under the CC-BY 4.0 license for academic use with proper attribution.
-          The images, videos, and annotations in this benchmark are intended solely for research purposes. These
-          data were sourced from publicly available online platforms, and while efforts were made to use them
-          responsibly, explicit permissions may not have been obtained for all content. Users are responsible
-          for ensuring that their use of the data complies with applicable intellectual property laws and ethical
-          guidelines. We encourage users to verify the sources and ensure compliance with any terms of service or
-          licensing agreements.
-      </p>  
     </div>
   </section>
-
-  <script>
-    // Handle message showing
-    function createChatRow(sender, text, imageSrc) {
-      var article = document.createElement("article");
-      article.className = "media"
-
-      var figure = document.createElement("figure");
-      figure.className = "media-left";
-
-      var span = document.createElement("span");
-      span.className = "icon is-large";
-
-      var icon = document.createElement("i");
-      icon.className = "fas fas fa-2x" + (sender === "User" ? " fa-user " : sender === "LLaVA" ? " fa-robot" : "");
-
-      var media = document.createElement("div");
-      media.className = "media-content";
-
-      var content = document.createElement("div");
-      content.className = "content";
-
-      var para = document.createElement("p");
-
-      // wrap text in pre tag to preserve whitespace and line breaks
-      var pre_text = document.createElement("pre");
-      pre_text.style = "background-color: white; font-size: 18px; font-family: Arial; padding: 0; margin: 0; white-space: pre-wrap; word-wrap: break-word;";
-      var paraText = document.createTextNode(text);
-      pre_text.appendChild(paraText);
-
-      var strong = document.createElement("strong");
-      strong.innerHTML = sender;
-      var br = document.createElement("br");
-
-      para.appendChild(strong);
-      para.appendChild(br);
-      para.appendChild(pre_text);
-
-      // Add image if imageSrc is provided
-      if (imageSrc) {
-        var img = document.createElement("img");
-        img.src = imageSrc;
-        img.style = "max-width: 100%; max-height: 300px;";
-        para.appendChild(img);
-      }
-
-      content.appendChild(para);
-      media.appendChild(content);
-      span.appendChild(icon);
-      figure.appendChild(span);
-      if (sender !== "Description") {
-        article.appendChild(figure);
-      }
-      article.appendChild(media);
-      return article;
-    }
-
-    function addMessageToChatHistory(sender, message, imageSrc) {
-      const chatHistory = document.querySelector('.chat-history');
-      const chatRow = createChatRow(sender, message, imageSrc);
-      chatHistory.appendChild(chatRow);
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-
-    function clearChatHistory() {
-      const chatHistory = document.querySelector('.chat-history');
-      chatHistory.innerHTML = "";
-    }
-
-    const conversations = [
-      {
-        "description": "monalisa",
-        "turns": [
-          ["User", "", "/static/images/monalisa.jpg"],
-          ["User", "Do you know who drew this painting?​"],
-          ["LLaVA",
-            "The painting depicts a woman, commonly believed to be Mona Lisa, the famous artwork by Leonardo da Vinci. It is a portrait painting that showcases the woman's enigmatic smile and has become one of the most famous and iconic art pieces in the world. The original work is displayed in the Louvre Museum in Paris, and it is known for its intricate details, use of oil paint, and the artist's innovative techniques that contributed to its enduring appeal and mystery.​"
-          ]
-        ]
-      },
-      {
-        "description": "monalisa with dog head",
-        "turns": [
-          ["User", "", "/static/images/monalisa-fun.jpg"],
-          ["User", "Do you know who drew this painting?​"],
-          ["LLaVA", "The painting depicts a dog in a humorous situation, where it appears to be wearing a woman's dress and standing in front of a landscape. Although the artist of the painting is not explicitly identified, it could be a reference to the famous artist Da Vinci, known for his artistic works, including the Mona Lisa. The painting is likely a creative and comical take on the traditional portrait style, replacing a human figure with a dog dressed in a woman's clothing, making it an interesting and amusing visual piece.​"]
-        ]
-      },
-      {
-        "description": "Titanic Rose and Jack",
-        "turns": [
-          ["User", "", "/static/images/titanic.jpg"],
-          ["User", "What's the ending of this movie?​​"],
-          ["LLaVA", "In the image, a young woman is leaning on a man in front of a beautiful sunset, with both of them standing on a boat. They appear to be enjoying a romantic moment together. The scene suggests that they could be depicted as the characters Jack and Rose from the popular movie Titanic. In the movie, their romance blossoms aboard the fictional ocean liner Titanic, with the pair ultimately sharing a passionate kiss as the ship sinks into the ocean. The ending of the movie is known for its emotional and heartfelt scenes, where the characters are forced to say goodbye to each other as they are separated by the sinking ship. The image evokes a sense of romance and nostalgia, paying tribute to the iconic love story portrayed in the movie Titanic.​"]
-        ]
-      },
-      {
-        "description": "Fridge",
-        "turns": [
-          ["User", "", "/static/images/fridge.jpg"],
-          ["User", "What are the meals that I can cook with these?​​"],
-          ["LLaVA", "With the variety of food items stored in the refrigerator, you can prepare several meals. For example, you can create a fruit salad using the strawberries, blueberries, and carrots. Additionally, you can make a delicious smoothie using the fruits and vegetables, which would be a healthy and nutritious snack or breakfast option. The milk and eggs can be used to create various dishes, such as a milk-based smoothie, a baked casserole, or scrambled eggs. The juice can also be used to make a fresh fruit and juice mix or as a refreshing homemade popsicle. The possibilities are vast, and the meals you can create will depend on your preferences and dietary needs.​"],
-          ["User", "I would like to do the fruit salad.  Show me the recipe.​"],
-          ["LLaVA", "Certainly! Here's a simple fruit salad recipe using the items in your refrigerator:  Ingredients:  - 2 cups fresh strawberries, sliced  - 1 cup fresh blueberries  - 1 large carrot, grated  - Juice of half a lemon  - A handful of chopped fresh parsley or mint  - A few ice cubes  - Optional: honey or maple syrup (adjust to taste)  Instructions:  1. In a large bowl, combine the sliced strawberries, blueberries, and carrot. Gently toss them together to mix.  2. Drizzle the juice of half a lemon over the fruit and vegetables to prevent them from oxidizing and add a refreshing citrus flavor.  3. Sprinkle the chopped fresh parsley or mint over the fruit and gently toss once more.  4. If desired, add a drizzle of honey or maple syrup for a touch of sweetness. Adjust the amount according to your taste preferences.  5. Cover the bowl and refrigerate the fruit salad for at least 30 minutes or up to a few hours. This allows the flavors to meld and creates a more refreshing salad.  6. Serve the fruit salad in cups or bowls, garnished with a sprinkle of fresh parsley or mint, if desired.  This fruit salad recipe is perfect for a healthy snack or side dish." ]
-        ]
-      },
-      {
-        "description": "Beautiful View",
-        "turns": [
-          ["User", "", "/static/images/view.jpg"],
-          ["User", "What are the things I should be cautious about when I visit here?​​"],
-          ["LLaVA", "When visiting this peaceful location with a pier extending over a serene lake, surrounded by mountains, there are several things to be cautious about. First, pay attention to the weather conditions, as sudden changes in weather, especially strong winds or storms, can cause the water to become rough and pose risks to the stability of the pier. Second, be mindful of the structural integrity of the pier; avoid overloading it with too many people or excessive weight, as this could potentially damage the pier or cause it to collapse. Additionally, be aware of the surrounding wildlife and respect their space; do not harm or disturb them in any way. Finally, if you decide to go fishing, ensure that you adhere to any local fishing regulations and use appropriate fishing techniques to keep the lake ecosystem healthy and maintain the balance of the food chain.​"],
-          ["User", "Compose an engaging travel blog post about my trip to this place, highlighting the beautiful sceneries, joyful experiences, and include possible anecdotes.​​"],
-          ["LLaVA", "Traveling to this picturesque location with a serene lake and mountains in the background was a refreshing and rejuvenating experience. The pier extending over the calm water provided an excellent vantage point from which to appreciate the breathtaking scenery. As I stood on the pier, I couldn't help but feel a deep connection with nature, taking a moment to soak in the peaceful atmosphere.  One of the highlights of my trip was undoubtedly the fishing experience. The area is teeming with life, and I was thrilled to land a sizeable catch, despite the modest size of the lake. The joy of fishing in such a beautiful setting was truly rewarding, and it allowed me to take a break from my busy life and truly immerse myself in the tranquility of nature.  While exploring the surrounding area, I came across a family of birds that had built a nest close to the pier, adding to the charm of the location. Interacting with the wildlife and observing their behavior was an enriching experience that I'll cherish for years to come.  In conclusion, this idyllic destination provided me with an opportunity to unwind and recharge, surrounded by mesmerizing natural beauty and the gentle sounds of water and wildlife. If you're looking for a serene escape from the hustle and bustle of everyday life, this pier overlooking the lake is the perfect place to find solace and reconnect with nature." ]
-        ]
-      }
-    ];
-
-    let currentIndex = 0;
-
-    function update_dialog_demo() {
-      clearChatHistory();
-      for (let i = 0; i < conversations[currentIndex].turns.length; i++) {
-        if (conversations[currentIndex].turns[i].length == 2) {
-          addMessageToChatHistory(conversations[currentIndex].turns[i][0], conversations[currentIndex].turns[i][1]);
-        }
-        else {
-          addMessageToChatHistory(conversations[currentIndex].turns[i][0], conversations[currentIndex].turns[i][1], conversations[currentIndex].turns[i][2]);
-        }
-      }
-      document.querySelector('.chat-history').scrollTop = 0;
-    }
-
-    update_dialog_demo();
-
-    document.getElementById('prev-question').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + conversations.length) % conversations.length;
-      update_dialog_demo();
-    });
-
-    document.getElementById('next-question').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % conversations.length;
-      update_dialog_demo();
-    });
-  </script>
-
-  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=fcfaee&w=600&t=tt&d=pDvM8pP6xwKUSlGJXxBGXqLJYIzpP8FnSdVopMjEtSM&cmn=c96868&cmo=bfbba9&ct=ffffff'></script>
-
 </body>
 </html>
