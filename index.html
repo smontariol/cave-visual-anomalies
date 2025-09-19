@@ -28,8 +28,8 @@
               <img src="images/cave.png" style="height: 100px; margin-right: 15px; margin-top: -10px;">
               <h1 class="title is-1 publication-title">CAVE</h1>
             </div>
-            <h2><b>Detecting and Explaining Commonsense Anomalies in Visual Environments</b></h2>
-            <h3><b style="color:red;">EMNLP 2025 Main</b></h3>
+            <h2>Detecting and Explaining Commonsense Anomalies<br>in Visual Environments</h2>
+            <h3 style="color:red;">EMNLP 2025 Main</h3>
 
             <div class="is-size-5">
               <span class="author-block"><b>Rishika Bhagwatkar</b><sup>1,2,*</sup>,</span>
@@ -42,7 +42,7 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup> École Polytechnique Fédérale de Lausanne (EPFL)</span>, 
-              <span class="author-block"><sup>2</sup> Mila</span>
+              <span class="author-block"><sup>2</sup> Quebec Artificial Intelligence Institute (Mila)</span>
             </div>
             <div class="is-size-6 publication-authors">
               <span class="author-block"><sup>*</sup> Equal Contribution</span>
@@ -86,11 +86,15 @@
     <div class="columns is-vcentered">
 
       <!-- Left column: Abstract text -->
-      <div class="column is-two-thirds">
+      <div class="column is-half"></div>
         <h2 class="title is-3">Summary</h2>
         <div class="content has-text-justified">
           <p>
-            Humans can naturally identify, reason about, and explain anomalies in their environment. We introduce <b>CAVE</b>, the first benchmark of real-world commonsense anomalies. <b>CAVE</b> supports three open-ended tasks: anomaly description, explanation, and justification; with fine-grained annotations categorizing anomalies based on their visual manifestations, their complexity, severity, and commonness (see example). 
+            Humans can naturally identify, reason about, and explain anomalies in their environment.
+            <br>
+            We introduce <b>CAVE</b>, the first benchmark of real-world commonsense anomalies. <b>CAVE</b> contains images captured in real-world scenarios and supports three open-ended tasks: anomaly description, explanation, and justification.
+            It also includes numerical features representing how humans perceive these anomalies: complexity, severity, and commonness (see example).
+            <br>
             These annotations draw inspiration from cognitive science research on how humans identify and resolve anomalies, providing a comprehensive framework for evaluating Vision-Language Models (VLMs) in detecting and understanding anomalies. 
             We show that state-of-the-art VLMs struggle with visual anomaly perception and commonsense reasoning, even with advanced prompting strategies. 
           </p>
@@ -98,11 +102,9 @@
       </div>
 
       <!-- Right column: Figure -->
-      <div class="column is-one-third has-text-centered">
+      <div class="column is-half">
         <img src="images/main.png" alt="CAVE Main Teaser" style="max-width:100%; border-radius:10px;">
-        <p style="margin-top:10px;"><b>Figure 1:</b> <b>CAVE</b> contains images captured in real-world scenarios, annotated with commonsense anomalies, along with their textual explanations and justifications. It also includes numerical features representing how humans perceive these anomalies.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -117,12 +119,12 @@
         <h2 class="title is-3">CAVE Benchmark Overview</h2>
         <p class="content is-medium">
           CAVE was created to evaluate how Vision-Language Models (VLMs) handle
-          <b>commonsense anomalies</b> in real-world images. We curated 361 images from online
-          communities and everyday contexts, each containing one or more anomalies.
-          Anomalies are annotated across three open-ended tasks:
-          <i>description, explanation, and justification</i>, as well as along numerical axes
-          of <b>severity, surprisal</b>, and <b>complexity</b>.
-        </p>
+          <b>commonsense anomalies</b> in real-world images. 
+          <br>
+          <b>(1) Image Collection:</b> Images were sourced from the top 1,000 posts across various subreddits and filtered to ensure high-quality and harmless data.<br>
+          <b>(2) Human Annotation:</b> Initial annotations were performed by Mechanical Turk workers, focusing on anomaly identification and classification.<br>
+          <b>(3) Expert Verification & Annotation:</b> A subsequent round of expert-driven annotation and verification ensured high-quality, consistent annotations across three open-ended tasks: <i>description, explanation, and justification</i>, as well as along numerical axes of <b>severity, surprisal</b>, and <b>complexity</b>.<br>
+       </p>
       </div>
     </div>
     <div class="text-center">
@@ -137,19 +139,16 @@
         <div class="column">
           <h3 class="title is-3">Dataset Statistics</h3>
           <p class="content is-medium">
-            The dataset includes <b>334 anomalies</b> across categories such as 
-            <i>entity presence/absence, attribute errors, spatial relation mismatches, 
-            uniformity breaches,</i> and <i>textual anomalies</i>.  
-            Each anomaly is paired with human-written descriptions, explanations, and 
-            plausible justifications, along with fine-grained scores:  
-            <b>Complexity</b> (ease of detection),  
+            The dataset includes <b>361 images</b> and <b>334 anomalies</b> across categories such as <i>entity presence/absence, attribute errors, spatial relation mismatches, 
+            uniformity breaches,</i> and <i>textual anomalies</i>. Each image contains 0 to 3 anomalies. Each anomaly is paired with human-written descriptions, explanations, and plausible justifications, along with fine-grained scores:  
             <b>Severity</b> (impact or risk),  
-            <b>Surprisal</b> (unexpectedness). 
+            <b>Surprisal</b> (unexpectedness),
+            <b>Complexity</b> (ease of detection).  
           </p>
         </div>
       </div>
       <div class="text-center">
-        <img src="images/CAVE_statistics.png" width="80%" alt="CAVE Dataset Statistics">
+        <img src="images/CAVE_statistics.png" width="100%" alt="CAVE Dataset Statistics">
         <p><b>Figure 2:</b> Statistics of anomaly categories and numerical attributes.</p>
       </div>
     </section>
@@ -162,16 +161,15 @@
           <h3 class="title is-3">Experimental Results</h3>
           <p class="content is-medium">
             We evaluated <b>8 state-of-the-art VLMs</b> on CAVE.  
-            Even the strongest models (GPT-4o, Claude 3.7, Qwen2.5-VL) only achieved
-            around <b>56% F1</b> in anomaly description — far from human performance.  
+            Even the strongest model only achieved around <b>57% F1</b> in anomaly description.
             Models perform best on <i>severe and surprising anomalies</i>, but struggle with
             <i>complex perception</i>, especially spatial reasoning and pattern detection.
           </p>
         </div>
       </div>
       <div class="text-center">
-        <img src="images/CAVE_results.png" width="80%" alt="CAVE Results">
-        <p><b>Figure 3:</b> Performance of leading VLMs across anomaly tasks.</p>
+        <img src="images/CAVE_results.png" width="100%" alt="CAVE Results">
+        <p><b>Figure 3:</b> Performance of leading VLMs for anomaly detection (AD) and anomaly explanation (AE), evaluated using GPT4o-as-a-judge. We test various prompting strategies: Chain-of-Thought (CoT), Set-of-Marks (SoM), multi-steps reasoning (MS CoT), and self-consistency (CoT + consist.)</p>
       </div>
     </section>
 
@@ -183,9 +181,8 @@
           <h3 class="title is-3">Example Anomalies</h3>
           <p class="content is-medium">
             CAVE captures a wide variety of <b>real-world commonsense anomalies</b>, ranging from 
-            misplaced objects and visual oddities to textual inconsistencies.  
-            This diversity challenges models to detect anomalies beyond simple object recognition
-            and requires reasoning about <i>context and expectations</i>.
+            misplaced objects to textual inconsistencies.  
+            This diversity challenges models to detect anomalies beyond simple object recognition and requires reasoning about <i>context and expectations</i>.
           </p>
         </div>
       </div>
@@ -207,7 +204,7 @@
     </div>
     <div class="container is-max-desktop content">
       <ul>
-        <li>State-of-the-art VLMs achieve only ~56% F1 on anomaly detection, far below human-level.</li>
+        <li>State-of-the-art VLMs achieve only ~57% F1 on anomaly detection.</li>
         <li>Models perform better on severe/surprising anomalies, but struggle with complex reasoning tasks.</li>
         <li>Visual grounding and structured prompting improve recall modestly, but issues remain.</li>
         <li>Cultural and commonsense gaps highlight the need for more inclusive evaluation.</li>
